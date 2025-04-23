@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Projects</title>
+  <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+  <h1>Projects</h1>
+  <a href="/projects/new">Add New Project</a>
+  <ul>
+    <% projects.forEach(project => { %>
+      <li>
+        <a href="/projects/<%= project.id %>"><%= project.name %></a>
+        <form action="/projects/<%= project.id %>/delete" method="POST" style="display:inline;">
+          <button type="submit">Delete</button>
+        </form>
+      </li>
+    <% }) %>
+  </ul>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= project.name %></title>
+  <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+  <h1><%= project.name %></h1>
+  <p><strong>Description:</strong> <%= project.description %></p>
+  <p><strong>Price:</strong> <%= project.price %></p>
+  <p><strong>Completed Tasks:</strong> <%= project.completedTasks || 'None' %></p>
+  <p><strong>Start Date:</strong> <%= project.startDate %></p>
+  <p><strong>End Date:</strong> <%= project.endDate %></p>
+  <p><strong>Team Members:</strong>
+    <% if (project.TeamMembers && project.TeamMembers.length > 0) { %>
+      <%= project.TeamMembers.map(member => member.name).join(', ') %>
+    <% } else { %>
+      None
+    <% } %>
+  </p>
+
+  <h3>Add Team Member</h3>
+  <form action="/projects/<%= project.id %>/add-member" method="POST">
+    <label>Team Member Name:</label>
+    <input type="text" name="teamMember" required>
+    <button type="submit">Add</button>
+  </form>
+
+  <a href="/projects/<%= project.id %>/edit">Edit</a>
+  <form action="/projects/<%= project.id %>/delete" method="POST" style="display:inline;">
+    <button type="submit">Delete</button>
+  </form>
+  <a href="/projects">Back to Projects</a>
+</body>
+</html>
