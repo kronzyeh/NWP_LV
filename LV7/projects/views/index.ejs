@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Project Management App</title>
+  <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+  <h1>Welcome to the Project Management App</h1>
+
+  <% if (currentUser) { %>
+    <p>Hello, <%= currentUser.username %>!</p>
+    <p>Manage your projects and teams:</p>
+    <ul>
+      <li><a href="/projects">My Projects (Leader)</a></li>
+      <li><a href="/users/leader-projects">View All Projects (Leader)</a></li>
+      <li><a href="/users/member-projects">My Projects (Member)</a></li>
+      <li><a href="/users/archive">Archived Projects</a></li>
+      <li><a href="/users/logout">Logout</a></li>
+    </ul>
+  <% } else { %>
+    <p>Please log in or register to manage projects.</p>
+    <ul>
+      <li><a href="/users/login">Login</a></li>
+      <li><a href="/users/register">Register</a></li>
+    </ul>
+  <% } %>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Archive</title>
+  <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+  <h1>Archived Projects</h1>
+  <a href="/projects">My Projects</a> |
+  <a href="/users/leader-projects">My Projects (Leader)</a> |
+  <a href="/users/member-projects">My Projects (Member)</a> |
+  <a href="/users/archive">Archive</a> |
+  <a href="/users/logout">Logout</a>
+
+  <h2>As Leader</h2>
+  <ul>
+    <% leaderProjects.forEach(project => { %>
+      <li><%= project.name %></li>
+    <% }) %>
+  </ul>
+
+  <h2>As Member</h2>
+  <ul>
+    <% memberProjects.forEach(project => { %>
+      <li><%= project.name %> (Leader: <%= project.leader.username %>)</li>
+    <% }) %>
+  </ul>
+</body>
+</html>

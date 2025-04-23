@@ -1,0 +1,42 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+}
+form {
+  margin: 20px 0;
+}
+label {
+  display: block;
+  margin: 10px 0 5px;
+}
+input, textarea {
+  width: 100%;
+  max-width: 500px;
+  padding: 8px;
+  margin-bottom: 10px;
+}
+button {
+  padding: 10px 20px;
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+button:hover {
+  background-color: #0056b3;
+}
+a {
+  color: #007BFF;
+  text-decoration: none;
+  margin-right: 10px;
+}
+a:hover {
+  text-decoration: underline;
+}
+ul {
+  list-style: none;
+  padding: 0;
+}
+li {
+  margin: 10px 0;
+}

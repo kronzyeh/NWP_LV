@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Project Details</title>
+  <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+  <h1><%= project.name %></h1>
+  <p><strong>Description:</strong> <%= project.description || 'N/A' %></p>
+  <p><strong>Price:</strong> <%= project.price %></p>
+  <p><strong>Completed Tasks:</strong> <%= project.completed_tasks || 'N/A' %></p>
+  <p><strong>Start Date:</strong> <%= project.start_date %></p>
+  <p><strong>End Date:</strong> <%= project.end_date || 'N/A' %></p>
+  <p><strong>Leader:</strong> <%= project.leader.username %></p>
+
+  <h2>Team Members</h2>
+  <ul>
+    <% project.members.forEach(member => { %>
+      <li><%= member.username %></li>
+    <% }) %>
+  </ul>
+
+  <% if (currentUser.id === project.leaderId) { %>
+    <h3>Add Team Member</h3>
+    <form action="/projects/<%= project.id %>/add-member" method="POST">
+      <label for="userId">Select User:</label>
+      <select id="userId" name="userId" required>
+        <% allUsers.forEach(user => { %>
+          <option value="<%= user.id %>"><%= user.username %></option>
+        <% }) %>
+      </select><br><br>
+      <button type="submit">Add Team Member</button>
+    </form>
+  <% } %>
+
+  <a href="/projects">Back to Projects</a> |
+  <a href="/users/leader-projects">My Projects (Leader)</a> |
+  <a href="/users/member-projects">My Projects (Member)</a> |
+  <a href="/users/archive">Archive</a> |
+  <a href="/users/logout">Logout</a>
+</body>
+</html>

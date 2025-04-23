@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Projects (Leader)</title>
+  <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+  <h1>My Projects (Leader)</h1>
+  <a href="/projects">My Projects</a> |
+  <a href="/users/leader-projects">My Projects (Leader)</a> |
+  <a href="/users/member-projects">My Projects (Member)</a> |
+  <a href="/users/archive">Archive</a> |
+  <a href="/users/logout">Logout</a>
+  <ul>
+    <% projects.forEach(project => { %>
+      <li>
+        <%= project.name %> - 
+        <a href="/projects/<%= project.id %>">View</a> |
+        <a href="/projects/<%= project.id %>/edit">Edit</a> |
+        <form action="/projects/<%= project.id %>/delete" method="POST" style="display:inline;">
+          <button type="submit">Delete</button>
+        </form> |
+        <form action="/projects/<%= project.id %>/archive" method="POST" style="display:inline;">
+          <button type="submit">Archive</button>
+        </form>
+      </li>
+    <% }) %>
+  </ul>
+</body>
+</html>

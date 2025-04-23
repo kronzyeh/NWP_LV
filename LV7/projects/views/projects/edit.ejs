@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Edit Project</title>
+  <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+  <h1>Edit Project</h1>
+  <% if (error) { %>
+    <p style="color: red;"><%= error %></p>
+  <% } %>
+  <form action="/projects/<%= project.id %>" method="POST">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" value="<%= project.name %>" required><br><br>
+    <label for="description">Description:</label>
+    <textarea id="description" name="description"><%= project.description %></textarea><br><br>
+    <label for="price">Price:</label>
+    <input type="number" id="price" name="price" step="0.01" value="<%= project.price %>" required><br><br>
+    <label for="completedTasks">Completed Tasks:</label>
+    <textarea id="completedTasks" name="completedTasks"><%= project.completed_tasks %></textarea><br><br>
+    <label for="startDate">Start Date:</label>
+    <input type="date" id="startDate" name="startDate" value="<%= project.start_date %>" required><br><br>
+    <label for="endDate">End Date:</label>
+    <input type="date" id="endDate" name="endDate" value="<%= project.end_date %>"><br><br>
+    <button type="submit">Update Project</button>
+  </form>
+  <a href="/projects/<%= project.id %>">Back to Project</a>
+</body>
+</html>
